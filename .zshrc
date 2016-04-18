@@ -12,8 +12,6 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-PATH=$PATH:~/bin
-
 alias sinit='source <(ssh-agent); ssh-add'
 alias ll='ls -la'
 alias -g b01="46.101.175.226"
@@ -50,3 +48,7 @@ else
     start_agent;
 fi
 
+
+# Go
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/dev/go
