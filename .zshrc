@@ -52,3 +52,5 @@ fi
 # Go
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/dev/go
+
+set editing-mode vi
