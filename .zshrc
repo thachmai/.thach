@@ -50,7 +50,10 @@ fi
 
 
 # Go
-export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/dev/go
 
 set editing-mode vi
+bindkey "^R" history-incremental-search-backward
+
+
+export PATH=$PATH:/usr/local/go/bin:$HOME/bin
