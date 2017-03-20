@@ -57,3 +57,7 @@ bindkey "^R" history-incremental-search-backward
 
 
 export PATH=$PATH:/usr/local/go/bin:$HOME/bin
+export SHELL=$(which zsh)
+
+# Local specific settings should be stored in the file "local"
+source ~/.thach/local
