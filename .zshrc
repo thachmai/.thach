@@ -21,7 +21,6 @@ alias web='python3 -m http.server &'
 #autoload -U promptinit
 #promptinit
 autoload -U colors && colors
-RPROMPT=%{$fg[magenta]%}%n@%m%{$reset_color%}
 PS1=[%{$fg[green]%}%/%{$reset_color%}]' '
 
 # ssh agent
@@ -58,6 +57,14 @@ bindkey "^R" history-incremental-search-backward
 
 export PATH=$PATH:/usr/local/go/bin:$HOME/bin
 export SHELL=$(which zsh)
+export EDITOR=/usr/bin/vim
 
 # Local specific settings should be stored in the file "local"
 source ~/.thach/local
+
+function repo_name { basename `git rev-parse --show-toplevel 2> /dev/null` 2> /dev/null } 
+setopt prompt_subst
+RPROMPT=%{$fg[magenta]%}%n@%m%{$reset_color%}
+RPROMPT='%{$fg_bold[yellow]%}$(repo_name)%{$reset_color%}'
+
+function fix_gnome_workspace { gsettings set org.gnome.shell.overrides workspaces-only-on-primary false }
