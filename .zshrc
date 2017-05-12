@@ -62,9 +62,10 @@ export EDITOR=/usr/bin/vim
 # Local specific settings should be stored in the file "local"
 source ~/.thach/local
 
+function repo_branch { git symbolic-ref HEAD 2> /dev/null | cut -d'/' -f3 }
 function repo_name { basename `git rev-parse --show-toplevel 2> /dev/null` 2> /dev/null } 
 setopt prompt_subst
 RPROMPT=%{$fg[magenta]%}%n@%m%{$reset_color%}
-RPROMPT='%{$fg_bold[yellow]%}$(repo_name)%{$reset_color%}'
+RPROMPT='%{$fg[yellow]%}$(repo_branch) %{$fg_bold[yellow]%}$(repo_name)%{$reset_color%}'
 
 function fix_gnome_workspace { gsettings set org.gnome.shell.overrides workspaces-only-on-primary false }
