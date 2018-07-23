@@ -15,7 +15,7 @@ compinit
 alias sinit='source <(ssh-agent); ssh-add'
 alias ll='ls -la'
 alias -g b01="46.101.175.226"
-alias web='python3 -m http.server &'
+alias web='python3 -m http.server'
 
 # Prompt stuff
 #autoload -U promptinit
