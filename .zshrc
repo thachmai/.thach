@@ -69,7 +69,6 @@ RPROMPT=%{$fg[magenta]%}%n@%m%{$reset_color%}
 RPROMPT='%{$fg[yellow]%}$(repo_branch) %{$fg_bold[yellow]%}$(repo_name)%{$reset_color%}'
 
 function fix_gnome_workspace { gsettings set org.gnome.shell.overrides workspaces-only-on-primary false }
-. "/home/thach/.acme.sh/acme.sh.env"
 
 function ts {
     args=$@
