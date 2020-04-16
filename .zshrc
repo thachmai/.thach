@@ -74,3 +74,29 @@ function ts {
     args=$@
     tmux send-keys -t right "$args" C-m
 }
+
+# encrypt/decrypt a file with gpg AES256 using gpg
+# by default the encrypted file name will end with .gpg
+function aesenc {
+    gpg --symmetric --cipher-algo AES256 $1
+}
+function aesdec {
+   gpg -o $2 -d $1.gpg
+}
+# securely view the file encrypted with "aesenc"
+function secview {
+    fbname=$(basename $1)
+    sudo mount -t tmpfs -o size=10G thach_sec_ram ~/.thach/sec_ram
+    aesdec $1 ~/.thach/sec_ram/$fbname
+    emacs ~/.thach/sec_ram/$fbname 
+    sudo umount ~/.thach/sec_ram
+}
+function secedit {
+    fbname=$(basename $1)
+    sudo mount -t tmpfs -o size=10G thach_sec_ram ~/.thach/sec_ram
+    aesdec $1 ~/.thach/sec_ram/$fbname
+    emacs ~/.thach/sec_ram/$fbname 
+    aesenc ~/.thach/sec_ram/$fbname
+    cp ~/.thach/sec_ram/$fbname.gpg $1.gpg
+    sudo umount ~/.thach/sec_ram
+}

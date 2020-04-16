@@ -1,2 +1,3 @@
 local
 .lein/self-installs
+.sec_ram/*
