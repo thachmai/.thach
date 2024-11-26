@@ -1,3 +1,4 @@
+source /Users/thach.mai/.bootstrap_rc
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -16,6 +17,8 @@ alias sinit='source <(ssh-agent); ssh-add'
 alias ll='ls -la'
 alias -g b01="46.101.175.226"
 alias web='python3 -m http.server'
+
+source <(fzf --zsh)
 
 # Prompt stuff
 #autoload -U promptinit
@@ -55,7 +58,7 @@ set editing-mode vi
 bindkey "^R" history-incremental-search-backward
 
 
-export PATH=$PATH:/usr/local/go/bin:$HOME/bin
+export PATH=$PATH:/usr/local/go/bin:$HOME/bin:/Users/thach.mai/dev/go/bin
 export SHELL=$(which zsh)
 export EDITOR=/usr/bin/vim
 
@@ -100,3 +103,9 @@ function secedit {
     cp ~/.thach/sec_ram/$fbname.gpg $1.gpg
     sudo umount ~/.thach/sec_ram
 }
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+export NODE_EXTRA_CA_CERTS="$HOME/.config/nexus-npm/npm-sfdc-certs.pem"
