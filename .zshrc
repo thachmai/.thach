@@ -109,3 +109,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 export NODE_EXTRA_CA_CERTS="$HOME/.config/nexus-npm/npm-sfdc-certs.pem"
+
+export NEXUS_USERNAME="2+GN2L8k"
+export NEXUS_PASSWORD="lqCORxkNDg0yDJU8zi50+aitijd6EZ6e2cfp27CzjIjl"
+
